@@ -1,39 +1,84 @@
 # OpenECG-XAI
 
-OpenECG-XAI is a dry-lab biomedical engineering project for classifying 12-lead ECG recordings as normal or abnormal using the PTB-XL dataset.
+OpenECG-XAI is an open-source dry-lab biomedical engineering project for classifying 12-lead ECG recordings as **normal** or **abnormal** using the **PTB-XL** dataset.
 
-## Project Goal
+## Why this project exists
 
-This project builds an interpretable machine learning pipeline that:
+This project was built to make ECG machine learning more:
 
-- loads ECG waveform data from PTB-XL
-- extracts basic signal features
-- trains a baseline classifier
-- evaluates classification performance
-- generates figures and result tables for analysis
+- accessible
+- reproducible
+- interpretable
+- easy to extend
+
+It is designed as a clean starting point for students, researchers, and developers interested in biomedical signal processing, health AI, and ECG classification.
 
 ## Current Version
 
-Version 1 performs:
+Version 1 includes:
 
-- binary classification: normal vs abnormal ECG
-- waveform visualization
-- feature extraction
+- PTB-XL metadata loading
+- binary label generation (`normal` vs `abnormal`)
+- ECG waveform loading
+- single-lead and 12-lead ECG plotting
+- basic feature extraction from all 12 leads
 - baseline random forest classification
-- confusion matrix generation
-- ROC curve plotting
-- feature importance analysis
+- confusion matrix
+- ROC curve
+- feature importance ranking
+- saved metrics and result tables
+
+## Project Goal
+
+The current goal is to build an interpretable ECG classification pipeline that can distinguish between normal and abnormal ECG recordings using simple engineered features.
+
+This baseline version is meant to be a strong foundation for later extensions into:
+
+- broad abnormality category prediction
+- MI vs STTC vs CD vs HYP classification
+- finer diagnosis-level prediction
+- stronger explainability methods
 
 ## Dataset
 
-- PTB-XL
-- 12-lead ECG records
-- 100 Hz waveform version used for the baseline pipeline
+This project uses the **PTB-XL** public 12-lead ECG dataset.
 
-## Current Outputs
+For the baseline version, the **100 Hz waveform files** are used.
 
-Generated outputs include:
+Expected dataset location:
 
+```text
+data/raw/ptbxl/
+
+## Who this is for
+
+This repo is useful for:
+
+- students learning biomedical machine learning
+- people learning ECG signal analysis
+- beginner health-AI developers
+- anyone wanting a PTB-XL starter pipeline
+
+## How to Run
+
+### 1. Create a virtual environment
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+
+### 3. Add the PTB-XL dataset
+Put the dataset here:
+
+```text
+data/raw/ptbxl/
+
+## Current Output Files
+
+### Figures
 - `figures/example_ecg_lead1.png`
 - `figures/example_ecg_12lead.png`
 - `figures/normal_vs_abnormal_lead1.png`
@@ -41,21 +86,21 @@ Generated outputs include:
 - `figures/feature_importance_baseline.png`
 - `figures/class_distribution_1000.png`
 - `figures/roc_curve_baseline.png`
+
+### Results
 - `results/feature_table_1000.csv`
 - `results/classification_report_baseline.txt`
 - `results/feature_importance_baseline.csv`
 - `results/metrics_summary.json`
 - `results/results_summary_table.csv`
+
+### Model
 - `models/random_forest_baseline.joblib`
+## Limitations
 
-## Baseline Result
+Current limitations:
 
-The current baseline model is a random forest trained on extracted ECG features from 1,000 samples.
-
-## Next Planned Extensions
-
-- broader ECG abnormality category prediction
-- MI vs STTC vs CD vs HYP classification
-- more advanced explainability
-- improved feature engineering
-- report and presentation packaging
+- binary classification only
+- simple engineered features only
+- baseline model only
+- not intended for clinical use
