@@ -1,8 +1,8 @@
-# OpenECG-XAI: Explainable ECG Classification from PTB-XL
+# ECGenius: Explainable ECG Classification from PTB-XL
 
 ## Abstract
 
-This project presents OpenECG-XAI, a dry-lab biomedical engineering pipeline for classifying 12-lead ECG recordings as normal or abnormal using the PTB-XL public dataset. ECG waveform data were loaded from the 100 Hz signal files, transformed into engineered signal features, and used to train a baseline random forest classifier. The system also generated waveform visualizations, a confusion matrix, an ROC curve, class distribution plots, and feature importance rankings. On a subset of 1,000 ECG recordings, the baseline model achieved an accuracy of 0.73 and an ROC-AUC of 0.814. These results show that simple interpretable features can support meaningful ECG abnormality detection and provide a strong foundation for future extensions into broader abnormality-category and diagnosis-level prediction.
+This project presents ECGenius, a dry-lab biomedical engineering pipeline for classifying 12-lead ECG recordings as normal or abnormal using the PTB-XL public dataset. ECG waveform data were loaded from the 100 Hz signal files, transformed into engineered signal features, and used to train a baseline random forest classifier. The system also generated waveform visualizations, a confusion matrix, an ROC curve, class distribution plots, and feature importance rankings. On a subset of 1,000 ECG recordings, the baseline model achieved an accuracy of 0.73 and an ROC-AUC of 0.814. These results show that simple interpretable features can support meaningful ECG abnormality detection and provide a strong foundation for future extensions into broader abnormality-category and diagnosis-level prediction.
 
 ## Introduction
 
