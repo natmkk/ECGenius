@@ -1,8 +1,8 @@
 > Early open-source release: an educational and research prototype for explainable ECG classification on PTB-XL. Not for clinical use.
 > 
-# OpenECG-XAI
+# ECGenius
 
-OpenECG-XAI is an open-source dry-lab biomedical engineering project for classifying 12-lead ECG recordings as **normal** or **abnormal** using the **PTB-XL** dataset.
+ECGenius is an open-source dry-lab biomedical engineering project for classifying 12-lead ECG recordings as **normal** or **abnormal** using the **PTB-XL** dataset.
 
 ## Why this project exists
 
