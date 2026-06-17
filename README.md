@@ -43,15 +43,6 @@ This baseline version is meant to be a strong foundation for later extensions in
 
 ## Dataset
 
-This project uses the **PTB-XL** public 12-lead ECG dataset.
-
-For the baseline version, the **100 Hz waveform files** are used.
-
-Expected dataset location:
-
-```text
-data/raw/ptbxl/
-
 ## Who this is for
 
 This repo is useful for:
@@ -68,41 +59,71 @@ This repo is useful for:
 python3 -m venv .venv
 source .venv/bin/activate
 
-### 2. Install dependencies
-```bash
+### 2. Install the required dependencies:
 pip install -r requirements.txt
 
-### 3. Add the PTB-XL dataset
-Put the dataset here:
-
-```text
+### 3. Download the PTB-XL dataset and place the files in:
 data/raw/ptbxl/
+The folder should contain:
+ptbxl_database.csv
+scp_statements.csv
+records100/
+records500/
 
-## Current Output Files
+### 4. Build the binary normal-vs-abnormal labels:
+``bash
+python main.py
+This creates: data/processed/ptbxl_binary_labels.csv
 
-### Figures
-- `figures/example_ecg_lead1.png`
-- `figures/example_ecg_12lead.png`
-- `figures/normal_vs_abnormal_lead1.png`
-- `figures/confusion_matrix_baseline.png`
-- `figures/feature_importance_baseline.png`
-- `figures/class_distribution_1000.png`
-- `figures/roc_curve_baseline.png`
+### 5. Check that waveform loading works correctly:
+``bash
+python -m src.waveform_check
 
-### Results
-- `results/feature_table_1000.csv`
-- `results/classification_report_baseline.txt`
-- `results/feature_importance_baseline.csv`
-- `results/metrics_summary.json`
-- `results/results_summary_table.csv`
+### 6. Generate ECG example plots:
+``bash
+python -m src.plot_one_ecg
+python -m src.plot_12lead_ecg
+python -m src.plot_normal_vs_abnormal
 
-### Model
-- `models/random_forest_baseline.joblib`
-## Limitations
+### 7. Build the feature table used for model training:
+``bash
+python -m src.build_feature_table
 
-Current limitations:
+### 8. Train the baseline random forest model:
+``bash
+python -m src.train_baseline
+*This generates a trained model, a confusion matrix, and a classification report.
 
-- binary classification only
-- simple engineered features only
-- baseline model only
-- not intended for clinical use
+### 9. Generate the remaining evaluation outputs:
+``bash
+python -m src.plot_feature_importance
+python -m src.plot_class_distribution
+python -m src.plot_roc_curve
+python -m src.save_metrics_summary
+python -m src.export_results_table
+
+## After running the full pipeline, the main generated outputs include:
+
+Figures
+
+* figures/example_ecg_lead1.png
+* figures/example_ecg_12lead.png
+* figures/normal_vs_abnormal_lead1.png
+* figures/confusion_matrix_baseline.png
+* figures/feature_importance_baseline.png
+* figures/class_distribution_1000.png
+* figures/roc_curve_baseline.png
+
+Results
+
+* results/feature_table_1000.csv
+* results/classification_report_baseline.txt
+* results/feature_importance_baseline.csv
+* results/metrics_summary.json
+* results/results_summary_table.csv
+
+Model
+
+* models/random_forest_baseline.joblib
+
+
