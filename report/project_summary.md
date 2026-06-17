@@ -1,7 +1,7 @@
 # Project Summary
 
 ## Title
-OpenECG-XAI: Explainable ECG Classification from PTB-XL
+ECGenius: Explainable ECG Classification from PTB-XL
 
 ## Overview
 This project builds a dry-lab biomedical engineering pipeline for classifying 12-lead ECG recordings as normal or abnormal using the PTB-XL dataset.
